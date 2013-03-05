@@ -4,19 +4,109 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- 
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+	
+	-->
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js" ></script>
+	<script src="javascripts/squeezeBox.js" ></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+	
+	<script>
+		$(document).ready(function(){
+			
+		});
+		
+		$(function(){
+			$('#demo1Button').click(function(){
+				$('#demo-1').squeezeBox();
+			});
+			
+			$('#demo2Button').click(function(){
+				var options = {
+					overlay: {
+						'background-color': 'rgba(47, 118, 198,0.6)'
+					},
+					container: {
+						'border-radius': '3px'
+					},
+					close: {
+						'background': '#222',
+						'color': '#fff',
+						'padding': '3px'
+					},
+					data:{
+						'background': '#2F76C6',
+						'padding': '5px',
+						'color': '#fff'
+					}
+				}
+				$('#demo-2').squeezeBox(options);
+			});
+			
+			$('#demo3Button'.click(function(){
+				var options = {
+					overlay: {
+						'background-color': 'rgba(47, 118, 198,0.6)'
+					}
+				}
+				$('#demo-3').squeezeBox(options);
+			});
+		});
+	</script>
 
+	<style>
+		.embed-box{
+			background: #3279C7;
+			color: #fff;
+			padding: 10px;
+			border: 1px solid #9DBEE3;
+		}
+		
+		span.bold{
+			font-weight: bolder;
+		}
+		
+		pre{
+			border-left: 6px solid #2F76C6;
+			margin-bottom: 12px;
+			overflow: auto;
+			padding: 4px 6px 6px;
+			position: relative;
+		}
+		.hide{
+			display: none;
+		}
+		.demo-button{
+			background: #2F76C6;
+			display: inline;
+			color: #fff;
+			padding: 6px;
+		}
+	</style>
     <title>Squeezebox by akshatgoel</title>
   </head>
 
   <body>
+  
+	<div id="demo-1" class="hide">
+		This is demo 1.
+	</div>
+	
+	<div id="demo-2" class="hide">
+		This is demo 2 applying CSS to all modal classes.
+	</div>
+	
+	<div id="demo-3" class="hide">
+		This is demo 3 applying CSS to limited modal classes.
+	</div>	
+	
     <header>
       <div class="inner">
         <h1>Squeezebox</h1>
@@ -28,9 +118,83 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <p>Ever needed a simple to use modal for your site with great transition effects?</p>
+          <div class="embed-box">squeezeBox is a lightweight <span class="bold" >jQuery</span> Plugin which provides a powerful and great looking transition effect. Plugin provides a cross-browser solution to easily create modal boxes out of any element in your webpage.</div>
+		  
+		  <h3>USAGE</h3>
 
-<p>squeezeBox is the solution. It's a easy to use modal box for your site with squeezing effect.</p>
+			<p>squeezeBox provides a simple way to invoke a modal dialog.</p>
+
+			<p>As a chained jQuery function, you can call the modal() function on a jQuery element and a modal dialog will be displayed using the contents of that element. For example: </p>
+			
+			<pre><code>$("#element-id").squeezeBox();</code></pre>
+			
+			<p>
+				The method described above also accepts an optional options object. Using the example above :
+			</p>
+			<pre><code>$("#element-id").squeezeBox({options});</code></pre>
+		
+			<h3>STYLING</h3>
+			
+			<p>
+				Styles can be applied through external CSS, the options object, or both. 
+				</p>
+				<p>
+				squeezeBox handles setting the necessary CSS for displaying the modal dialog. In addition, squeezeBox dynamically centers the modal dialog, unless the <span class="bold">position</span> option is used, which takes precedence.
+
+				</p>
+				<p>
+squeezeBox internally defines the following CSS classes: squeezeBox-overlay, squeezeBox-container and squeezeBox-data.
+			</p>
+			
+			<h3>DEMOS</h3>
+			
+			Here are some demos defined showing the capability of squeezeBox.
+			<br />
+			<br />
+			<span class="demo-button" id="demo1Button" >Demo 1</span>
+			<br />
+			<br />
+			<pre><code>$('#demo-1').squeezeBox();</code></pre>
+			
+			
+			<br /><br />
+			<span class="demo-button" id="demo2Button" >Demo 2</span>
+			
+			<br /><br />
+			<pre><code>
+var options = {
+	overlay: {
+		'background-color': 'rgba(47, 118, 198,0.6)'
+	},
+	container: {
+		'border-radius': '3px'
+	},
+	close: {
+		'background': '#222',
+		'color': '#fff',
+		'padding': '3px'
+	},
+	data:{
+		'background': '#2F76C6',
+		'padding': '5px',
+		'color': '#fff'
+	}
+}
+				
+$('#demo-2').squeezeBox(options);</code></pre>
+			
+			<br /><br />
+			<span class="demo-button" id="demo3Button" >Demo 3</span>
+			
+			<br /><br />
+			<pre><code>var options = {
+	overlay: {
+	'background-color': 'rgba(47, 118, 198,0.6)'
+	}
+}
+				
+$('#demo-2').squeezeBox(options);</code></pre>
+			
         </section>
 
         <aside id="sidebar">
